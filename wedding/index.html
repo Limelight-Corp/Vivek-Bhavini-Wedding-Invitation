@@ -774,33 +774,39 @@
   ========================================================= */
     .day {
       background: var(--ivory);
-      padding-top: 40px
+      padding-top: 20px
     }
 
     .day .head {
-      padding: 56px 28px 10px;
-      text-align: center
+      padding: 20px 20px 24px;
+      text-align: center;
+      position: relative;
+      z-index: 2
     }
 
     .day .head h2 {
-      font-size: clamp(17px, 5vw, 20px);
-      letter-spacing: .18em;
-      text-transform: uppercase;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(24px, 6.8vw, 32px);
       font-weight: 500;
-      color: var(--gold-deep)
+      color: #6e5b9a;
+      letter-spacing: .03em;
+      line-height: 1.22;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto
+    }
+
+    .day .head h2 span {
+      display: block
     }
 
     .day .head h2 sup {
       font-size: .55em;
-      letter-spacing: 0
-    }
-
-    .day .head p {
-      font-style: italic;
-      color: var(--ink);
-      font-size: 14.5px;
-      line-height: 1.5;
-      margin-top: 8px
+      vertical-align: super;
+      line-height: 0
     }
 
     .card {
@@ -7594,6 +7600,13 @@
         </svg><svg class="c tr" viewBox="0 0 200 200">
           <use href="#bloom" />
         </svg></div>
+      <div class="head">
+        <h2>
+          <span>FRIDAY</span>
+          <span>25 DECEMBER</span>
+          <span>2026</span>
+        </h2>
+      </div>
       <div class="stack">
         <div class="card">
           <span class="idx">01</span>
@@ -7697,7 +7710,7 @@
           <div class="ico big wide"><svg viewBox="0 0 657.9 422.55">
               <use href="#bhojnamIcon" />
             </svg></div>
-          <h3>Bhojnam</h3>
+          <h3>Bhojanam</h3>
           <p>Gather with family and friends to savor a traditional South Indian wedding feast</p>
           <div class="time">12 noon onwards</div>
         </div>
@@ -7975,6 +7988,8 @@
         .from('#std .dates .m, #std .dates .y, #std .where', { opacity: 0, y: 10, stagger: .05, duration: .2 }, .52)
         .from('#std .orn.end', { scaleX: 0, opacity: 0, duration: .25 }, .62);
 
+      /* ---------- 5. day 1 header reveal ---------- */
+      gsap.from('#day1 .head', { opacity: 0, y: 20, duration: .8, ease: 'power2.out', scrollTrigger: { trigger: '#day1', start: 'top 80%', once: true } });
 
       /* ---------- 6. day 2 kolam draw ---------- */
       gsap.from('#kolam-wrap .wd', { opacity: 0, scale: .94, transformOrigin: '50% 50%', duration: .9, ease: 'power2.out', scrollTrigger: { trigger: '#kolam-wrap', start: 'top 80%', once: true } });
